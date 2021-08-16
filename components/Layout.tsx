@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { ReactNode } from 'react'
+import Navbar from './Navbar'
 
 interface Props {
     children: ReactNode,
@@ -12,6 +13,7 @@ export default function Layout({ children, title }: Props){
             <Head>
                 <title>{ title || 'Ardha Developer Blog' }</title>
             </Head>
+            <Navbar/>
             { children }
         </main>
     )

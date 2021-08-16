@@ -4,11 +4,13 @@ function FeaturedPost({ item }){
     return(
         <li className="post px-5 mb-10 flex flex-full max-w-none" key={item.id}>
             <a href={item.slug} className="flex-auto relative block rounded overflow-hidden h-96 mr-4 bg-whitesmoke">
-                { item.image.src ? <Image objectFit="cover" sizes="100%" layout="fill" src={ item.image.url } alt={ item.title } /> : '' }
+                { item.image.url ? <Image objectFit="cover" sizes="100%" layout="fill" src={ item.image.url } alt={ item.title } /> : '' }
             </a>
             <div className="mt-4 post flex flex-col justify-center pl-8">
                 <ul className="mb-2 flex">
-                    <li className="text-xs py-1 px-2 bg-whitesmoke rounded-sm">Web Development</li>
+                    { item.categories.map((item, index) => (
+                        <li className="text-xs py-1 px-2 bg-blue-50 text-blue-600 rounded-sm mr-2" key={index}>{ item.name }</li>
+                    )) }
                 </ul>
                 <a href={item.slug}>
                     <h3 className="font-semibold tracking-tight leading-tight text-3xl">{ item.title }</h3>
@@ -32,11 +34,13 @@ function Post({ item }){
     return(
         <li className="post px-5 mb-10" key={item.id}>
             <a href={item.slug} className="w-full relative block rounded overflow-hidden h-52 bg-whitesmoke">
-                { item.image.src ? <Image objectFit="cover" sizes="100%" layout="fill" src={ item.image.url } alt={ item.title } /> : '' }
+                { item.image.url ? <Image objectFit="cover" sizes="100%" layout="fill" src={ item.image.url } alt={ item.title } /> : '' }
             </a>
             <div className="mt-4">
                 <ul className="mb-2 flex">
-                    <li className="text-xs py-1 px-2 bg-whitesmoke rounded-sm">Web Development</li>
+                    { item.categories.map((item, index) => (
+                        <li className="text-xs py-1 px-2 bg-blue-50 text-blue-600 rounded-sm mr-2" key={index}>{ item.name }</li>
+                    )) }
                 </ul>
                 <a href={item.slug}>
                     <h3 className="font-semibold tracking-tight leading-tight text-xl">{ item.title }</h3>
@@ -75,38 +79,51 @@ export default function BlogPosts(){
 const data = [
     {
         id: 1,
-        title: 'Why choose MongoDB as your next database?',
+        title: 'Controll Tuya Smart Bulb using Python',
         slug: '/',
         image: {
-            url: ''
+            url: 'https://ardha-dev.s3.ap-southeast-1.amazonaws.com/Internet_Connection_e49196f850.webp?2028563.5'
         },
-        description: 'What is Mongo Database & why should you be leveraging this powerful database for your next development project?'
+        description: 'How to create an awesome IoT project using Tuya API and Python',
+        categories: [
+            { name: 'IoT' },
+            { name: 'Python' }
+        ]
     },
     {
         id: 2,
-        title: 'Become a Full Stack Developer - The Complete Roadmap',
+        title: 'When to Use NoSQL Rather than SQL Database',
         slug: '/',
         image: {
-            url: ''
+            url: 'https://ardha-dev.s3.ap-southeast-1.amazonaws.com/Databases_b5979cf57b.png?1637910.1999999955'
         },
-        description: 'How to become a full stack developer - top full stack developer skills. Discover the best way to learn full stack development. Get started today!'
+        description: 'What is NoSQL and SQl database & how to choose the right database for your project!',
+        categories: [
+            { name: 'Databases' }
+        ]
     },
     {
         id: 3,
-        title: 'Top 5 JavaScript Projects for React Developers',
+        title: 'Error Tracking in Node.js using Sentry',
         slug: '/',
         image: {
-            url: ''
+            url: 'https://ardha-dev.s3.ap-southeast-1.amazonaws.com/Server_Error_c70074ec4d.jpg?925884.599999994'
         },
-        description: 'Best Javascript projects for beginners, intermediate, and advanced web developers. Perfect for React JS developers.'
+        description: 'How to track errors in Nodejs applications that appear unexpectedly',
+        categories: [
+            { name: 'Web Development' }
+        ]
     },
     {
         id: 4,
-        title: 'What is Redis and Why is it used by leading industries?',
+        title: 'How I Landed My First Web Developer Job: An Unexpected Story',
         slug: '/',
         image: {
-            url: ''
+            url: 'https://ardha-dev.s3.ap-southeast-1.amazonaws.com/Work_From_Home_ed34cf34d3.jpg?300633.19999999553'
         },
-        description: 'What is Redis? Reasons to use Redis for caching. Advantages & Features of Redis. Industry applications of Redis.'
+        description: 'An unexpected story about how I landed my first web developer job after 6 months learning React',
+        categories: [
+            { name: 'Dev Diary' }
+        ]
     },
 ]
