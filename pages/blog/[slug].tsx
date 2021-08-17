@@ -1,8 +1,7 @@
 import Layout from "../../components/Layout";
 import { getPostBySlug, getPosts } from "../../lib/graphql/queries";
-import Image from'next/image';
-import ReactMarkdown from 'react-markdown';
-import style from '../../styles/content.module.css';
+import Image from 'next/image';
+import RenderMarkdown from "../../components/RenderMarkdown";
 
 export default function Blog({ post }) {
     return (
@@ -30,7 +29,8 @@ export default function Blog({ post }) {
                     </div>
                 </header>
                 <div className="max-w-screen-md m-auto">
-                    <ReactMarkdown className={style.content}>{ post.content }</ReactMarkdown>
+                    {/* <ReactMarkdown className={style.content}>{ post.content }</ReactMarkdown> */}
+                    <RenderMarkdown content={ post.content }/>
                 </div>
             </div>
         </Layout>
