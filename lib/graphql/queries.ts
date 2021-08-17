@@ -14,7 +14,8 @@ export const getPosts = () => {
                 },
                 published_at,
                 categories{
-                    name
+                    name,
+                    slug
                 }
             }
         }

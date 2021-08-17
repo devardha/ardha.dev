@@ -9,12 +9,14 @@ interface Props {
 
 export default function Layout({ children, title }: Props){
     return (
-        <main>
+        <>
             <Head>
                 <title>{ title || 'Ardha Developer Blog' }</title>
             </Head>
             <Navbar/>
-            { children }
-        </main>
+            <main className="mt-20">
+                { children }
+            </main>
+        </>
     )
 }
