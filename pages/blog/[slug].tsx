@@ -30,7 +30,7 @@ export default function Blog({ post }) {
                     </div>
                 </header>
                 <div className="max-w-screen-md m-auto">
-                    <ReactMarkdown children={post.content} className={style.content}/>
+                    <ReactMarkdown className={style.content}>{ post.content }</ReactMarkdown>
                 </div>
             </div>
         </Layout>
