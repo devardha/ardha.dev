@@ -25,8 +25,8 @@ function FeaturedPost({ item }){
                     </a>
                 </Link>
                 <div className="flex mt-4 items-center">
-                    <div className="rounded-full w-8 h-8 overflow-hidden">
-                        <img src="https://avatars.githubusercontent.com/u/59217768?v=4" alt="author" />
+                    <div className="rounded-full w-8 h-8 overflow-hidden relative bg-whitesmoke">
+                        <Image objectFit="cover" sizes="100%" layout="fill" src="https://avatars.githubusercontent.com/u/59217768?v=4" alt="author" />
                     </div>
                     <div className="text-xs flex flex-col ml-4 uppercase">
                         <a href="#" className="font-medium">Ardha Yudhatama</a>
