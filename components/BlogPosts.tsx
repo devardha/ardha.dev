@@ -4,7 +4,7 @@ function FeaturedPost({ item }){
     return(
         <li className="post px-5 mb-10 flex flex-full max-w-none" key={item.id}>
             <a href={item.slug} className="flex-auto relative block rounded overflow-hidden h-96 mr-4 bg-whitesmoke">
-                { item.image.url ? <Image objectFit="cover" sizes="100%" layout="fill" src={ item.image.url } alt={ item.title } /> : '' }
+                { item.image.url ? <Image objectFit="cover" sizes="100%" layout="fill" placeholder="blur" blurDataURL={ item.image.url } src={ item.image.url } alt={ item.title } /> : '' }
             </a>
             <div className="mt-4 post flex flex-col justify-center pl-8">
                 <ul className="mb-2 flex">
@@ -34,7 +34,7 @@ function Post({ item }){
     return(
         <li className="post px-5 mb-10" key={item.id}>
             <a href={item.slug} className="w-full relative block rounded overflow-hidden h-52 bg-whitesmoke">
-                { item.image.url ? <Image objectFit="cover" sizes="100%" layout="fill" src={ item.image.url } alt={ item.title } /> : '' }
+                { item.image.url ? <Image objectFit="cover" sizes="100%" layout="fill" placeholder="blur" blurDataURL={ item.image.url } src={ item.image.url } alt={ item.title } /> : '' }
             </a>
             <div className="mt-4">
                 <ul className="mb-2 flex">
@@ -60,15 +60,15 @@ function Post({ item }){
     )
 }
 
-export default function BlogPosts(){
+export default function BlogPosts({ posts }){
     return(
         <div className="container">
             <ul className="flex flex-wrap py-10">
-                { data.map((item, index) => {
+                { posts.map((item, index) => {
                     if(index === 0){
-                        return <FeaturedPost item={item}/>
+                        return <FeaturedPost item={item} key={index}/>
                     }else{
-                        return <Post item={item}/>
+                        return <Post item={item} key={index}/>
                     }
                 }) }
             </ul>
@@ -84,7 +84,7 @@ const data = [
         image: {
             url: 'https://ardha-dev.s3.ap-southeast-1.amazonaws.com/Internet_Connection_e49196f850.webp?2028563.5'
         },
-        description: 'How to create an awesome IoT project using Tuya API and Python',
+        description: 'How to controll Tuya smart bulb using Tuya API and Python',
         categories: [
             { name: 'IoT' },
             { name: 'Python' }
