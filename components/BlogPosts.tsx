@@ -21,7 +21,7 @@ function FeaturedPost({ item }){
                 <Link href={'/blog/' + item.slug}>
                     <a>
                         <h3 className="font-semibold tracking-tight leading-tight text-3xl">{ item.title }</h3>
-                        <p className="mt-2 text-bluishigrey"> { item.description } </p>
+                        <p className="mt-2 text-gray-400"> { item.description } </p>
                     </a>
                 </Link>
                 <div className="flex mt-4 items-center">
@@ -57,7 +57,7 @@ function Post({ item }){
                 <Link href={'/blog/' + item.slug}>
                     <a>
                         <h3 className="font-semibold tracking-tight leading-tight text-xl">{ item.title }</h3>
-                        <p className="mt-2 text-bluishigrey"> { item.description } </p>
+                        <p className="mt-2 text-gray-400"> { item.description } </p>
                     </a>
                 </Link>
                 <div className="flex mt-4 items-center">

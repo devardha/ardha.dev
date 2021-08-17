@@ -4,11 +4,13 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                bluishigrey: '#738a94',
                 whitesmoke: '#f3f5f9'
             },
             flex: {
                 full: '1 1 100%'
+            },
+            spacing: {
+                '144': '36rem',
             }
         },
         container: {
