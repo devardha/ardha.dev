@@ -1,15 +1,16 @@
 export default {
     "code[class*=\"language-\"]": {
-        "color": "#f8f8f2",
+        "color": "#333",
         "background": "none",
-        "textShadow": "0 1px rgba(0, 0, 0, 0.3)",
+        "textShadow": "none",
         "fontFamily": "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
+        "fontSize": "13.6px",
         "textAlign": "left",
         "whiteSpace": "pre",
         "wordSpacing": "normal",
         "wordBreak": "normal",
         "wordWrap": "normal",
-        "lineHeight": "1.5",
+        "lineHeight": "1.4",
         "MozTabSize": "4",
         "OTabSize": "4",
         "tabSize": "4",
@@ -19,16 +20,17 @@ export default {
         "hyphens": "none"
     },
     "pre[class*=\"language-\"]": {
-        "color": "#f8f8f2",
-        "background": "#282a36",
-        "textShadow": "0 1px rgba(0, 0, 0, 0.3)",
+        "color": "#333",
+        "background": "#f2f2f2",
+        "textShadow": "none",
         "fontFamily": "Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace",
+        "fontSize": "13.6px",
         "textAlign": "left",
         "whiteSpace": "pre",
         "wordSpacing": "normal",
         "wordBreak": "normal",
         "wordWrap": "normal",
-        "lineHeight": "1.5",
+        "lineHeight": "1.4",
         "MozTabSize": "4",
         "OTabSize": "4",
         "tabSize": "4",
@@ -37,30 +39,30 @@ export default {
         "msHyphens": "none",
         "hyphens": "none",
         "padding": "1em",
-        "margin": ".5em 0",
+        "margin": "1rem 0",
         "overflow": "auto",
-        "borderRadius": "0.3em"
+        "borderRadius": "3px"
     },
     ":not(pre) > code[class*=\"language-\"]": {
-        "background": "#282a36",
+        "background": "#f2f2f2",
         "padding": ".1em",
-        "borderRadius": ".3em",
+        "borderRadius": "3px",
         "whiteSpace": "normal"
     },
     "comment": {
-        "color": "#6272a4"
+        "color": "#808591"
     },
     "prolog": {
-        "color": "#6272a4"
+        "color": "#808591"
     },
     "doctype": {
-        "color": "#6272a4"
+        "color": "#808591"
     },
     "cdata": {
-        "color": "#6272a4"
+        "color": "#808591"
     },
     "punctuation": {
-        "color": "#f8f8f2"
+        "color": "#666a71"
     },
     ".namespace": {
         "Opacity": ".7"
@@ -81,62 +83,62 @@ export default {
         "color": "#ff79c6"
     },
     "boolean": {
-        "color": "#bd93f9"
+        "color": "#225196"
     },
     "number": {
-        "color": "#bd93f9"
+        "color": "#225196"
     },
     "selector": {
-        "color": "#50fa7b"
+        "color": "#08966b"
     },
     "attr-name": {
-        "color": "#50fa7b"
+        "color": "#08966b"
     },
     "string": {
-        "color": "#50fa7b"
+        "color": "#08966b"
     },
     "char": {
-        "color": "#50fa7b"
+        "color": "#08966b"
     },
     "builtin": {
-        "color": "#50fa7b"
+        "color": "#08966b"
     },
     "inserted": {
-        "color": "#50fa7b"
+        "color": "#08966b"
     },
     "operator": {
-        "color": "#f8f8f2"
+        "color": "#666a71"
     },
     "entity": {
-        "color": "#f8f8f2",
+        "color": "#666a71",
         "cursor": "help"
     },
     "url": {
-        "color": "#f8f8f2"
+        "color": "#666a71"
     },
     ".language-css .token.string": {
-        "color": "#f8f8f2"
+        "color": "#666a71"
     },
     ".style .token.string": {
-        "color": "#f8f8f2"
+        "color": "#666a71"
     },
     "variable": {
-        "color": "#f8f8f2"
+        "color": "#666a71"
     },
     "atrule": {
-        "color": "#f1fa8c"
+        "color": "#e0276a"
     },
     "attr-value": {
-        "color": "#f1fa8c"
+        "color": "#e0276a"
     },
     "function": {
-        "color": "#f1fa8c"
+        "color": "#e0276a"
     },
     "class-name": {
-        "color": "#f1fa8c"
+        "color": "#e0276a"
     },
     "keyword": {
-        "color": "#8be9fd"
+        "color": "#0069ff"
     },
     "regex": {
         "color": "#ffb86c"
