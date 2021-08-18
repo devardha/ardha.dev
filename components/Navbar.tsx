@@ -23,6 +23,6 @@ export default function Navbar(){
 
 const data = [
     { title: 'Blog', url: '/' },
-    { title: 'Works', url: '/works' },
-    { title: 'Contact', url: '/contact' }
+    { title: 'About', url: '/about' },
+    { title: 'GitHub', url: 'https://github.com/devardha' }
 ]

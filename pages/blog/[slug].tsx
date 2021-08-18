@@ -29,7 +29,6 @@ export default function Blog({ post }) {
                     </div>
                 </header>
                 <div className="max-w-screen-md m-auto">
-                    {/* <ReactMarkdown className={style.content}>{ post.content }</ReactMarkdown> */}
                     <RenderMarkdown content={ post.content }/>
                 </div>
             </div>
