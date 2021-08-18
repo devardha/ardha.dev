@@ -10,13 +10,17 @@ export default function RenderMarkdown({ content }){
             components={{
             code({ node, inline, className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || '')
+                const codeHeader = className && className.includes(':');
                 return !inline && match ? (
+                    <>
+                    { codeHeader && <div className="code-label">{ className.split(':')[1] }</div> }
                     <SyntaxHighlighter
                         style={ styles }
                         language={ match[1] }
                         PreTag="div"
                         { ...props }
                     >{ String(children).replace(/\n$/, '') }</SyntaxHighlighter>
+                    </>
                 ) : (
                 <code className={className} { ...props }>
                     { children }
@@ -34,9 +38,28 @@ export default function RenderMarkdown({ content }){
                 display: inline-block;
             }
 
+            .code-label{
+                background-color: #e5e5e5;
+                border-radius: 3px 3px 0 0;
+                color: #323232;
+                font-size: 14px;
+                padding: 8px 15px;
+                margin-bottom:-1rem;
+            }
+
             .content p {
                 margin-bottom: 22px;
                 line-height: 1.7;
+            }
+
+            .content p code {
+                font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+                border-radius: 3px;
+                line-height: 22px;
+                font-size: .9375em;
+                padding: 3px 6px;
+                background: #f2f2f2;
+                color: #333;
             }
 
             .content ul {
