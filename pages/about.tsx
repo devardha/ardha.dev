@@ -11,7 +11,7 @@ export default function About() {
                     </div>
                 </header>
                 <div className="max-w-screen-md m-auto">
-                    <RenderMarkdown content={ "Hey, I’m Ardha 👋. I'm a developer from Indonesia. I work at Hybrid as a Full Stack Web Developer. I usually work with React and Node.js. And yes, I love javascript so much! Javascript has become my third language after Indonesian and English. I'm also interested in learning other programming languages such as Python, Go, and also Ruby." }/>
+                    <RenderMarkdown content={ "" }/>
                 </div>
             </div>
         </Layout>

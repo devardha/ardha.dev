@@ -30,14 +30,6 @@ export default function RenderMarkdown({ content }){
             }}
         >{ content }</ReactMarkdown>
         <style dangerouslySetInnerHTML={{__html: `
-            .language-bash::before{
-                content: "$";
-                margin-right: 10px;
-                text-align: right;
-                user-select: none;
-                display: inline-block;
-            }
-
             .code-label{
                 background-color: #e5e5e5;
                 border-radius: 3px 3px 0 0;
