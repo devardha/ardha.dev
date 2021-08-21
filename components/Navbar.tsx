@@ -12,10 +12,13 @@ export default function Navbar(){
                     <ul className="flex flex-1 justify-start">
                         { data.map((item, index) => (
                             <Link href={item.url} key={index}>
-                                <a><li className={`mx-4 hover:text-blue-600 ${ pathname === item.url ? 'text-blue-600' : '' } ${ index === 0? 'ml-0' : '' }`}>{ item.title }</li></a>
+                                <a><li className={`mx-4 text-sm hover:text-blue-600 ${ pathname === item.url ? 'text-blue-600' : '' } ${ index === 0? 'ml-0' : '' }`}>{ item.title }</li></a>
                             </Link>
                         )) }
                     </ul>
+                    <div className="absolute left-0 right-0 flex justify-center w-full pointer-events-none select-none">
+                        <h1 className="bg-black px-4 py-1 text-white" style={{ fontFamily: 'Consolas' }}>devardha</h1>
+                    </div>
                     <BiSearch className="text-2xl"/>
                 </div>
             </div>
