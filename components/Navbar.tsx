@@ -12,7 +12,7 @@ export default function Navbar(){
                     <ul className="flex flex-1 justify-start">
                         { data.map((item, index) => (
                             <Link href={item.url} key={index}>
-                                <a><li className={`mx-5 font-medium hover:text-blue-600 ${ pathname === item.url ? 'text-blue-600' : '' } ${ index === 0? 'ml-0' : '' }`}>{ item.title }</li></a>
+                                <a><li className={`mx-5 hover:text-blue-600 ${ pathname === item.url ? 'text-blue-600' : '' } ${ index === 0? 'ml-0' : '' }`}>{ item.title }</li></a>
                             </Link>
                         )) }
                     </ul>
@@ -26,5 +26,6 @@ export default function Navbar(){
 const data = [
     { title: 'Blog', url: '/' },
     { title: 'About', url: '/about' },
-    { title: 'GitHub', url: 'https://github.com/devardha' }
+    { title: 'Works', url: 'https://github.com/devardha' },
+    { title: 'My Gears', url: '/my-gear' },
 ]

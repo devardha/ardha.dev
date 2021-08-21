@@ -54,10 +54,22 @@ export const getPostBySlug = async (slug) => {
     return client.request(query);
 }
 
+export const getPages = async () => {
+    const query = gql`
+        {
+            pages{
+                slug
+            }
+        }
+    `;
+
+    return client.request(query);
+}
+
 export const getPageBySlug = async (slug) => {
     const query = gql`
         {
-            pages(where: { slug: "about" }){
+            pages(where: { slug: "${slug}" }){
                 title,
                 content,
                 seo{

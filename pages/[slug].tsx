@@ -1,8 +1,8 @@
 import Layout from "../components/Layout";
 import RenderMarkdown from "../components/RenderMarkdown";
-import { getPageBySlug } from "../lib/graphql/queries";
+import { getPageBySlug, getPages } from "../lib/graphql/queries";
 
-export default function About({ page }) {
+export default function Page({ page }) {
     return (
         <Layout metaTitle={ page.seo.metaTitle } metaDescription={ page.seo.metaDescription } shareImage={ page.seo.shareImage && page.seo.shareImage.url }>
             <div className="container py-10 px-5">
@@ -18,9 +18,18 @@ export default function About({ page }) {
         </Layout>
     )
 }
+export async function getStaticPaths() {
+    const { pages } = await getPages();
 
-export async function getStaticProps() {
-    const { pages } = await getPageBySlug('about');
+    const paths = pages.map((page) => ({
+        params: { slug: page.slug },
+    }))
+
+  return { paths, fallback: false }
+}
+
+export async function getStaticProps({ params: { slug } }) {
+    const { pages } = await getPageBySlug(slug);
 
     return {
         props: {
