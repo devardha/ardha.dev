@@ -30,6 +30,14 @@ export const getPostBySlug = async (slug) => {
             posts(where: { slug: "${slug}" }){
                 title,
                 description,
+                content
+                seo{
+                    metaTitle,
+                    metaDescription,
+                    shareImage{
+                        url
+                    }
+                }
                 slug,
                 image{
                     url,
@@ -38,8 +46,27 @@ export const getPostBySlug = async (slug) => {
                 published_at,
                 categories{
                     name
-                },
-                content
+                }
+            }
+        }
+    `;
+
+    return client.request(query);
+}
+
+export const getPageBySlug = async (slug) => {
+    const query = gql`
+        {
+            pages(where: { slug: "about" }){
+                title,
+                content,
+                seo{
+                    metaTitle,
+                    metaDescription,
+                    shareImage{
+                        url
+                    }
+                }
             }
         }
     `;
