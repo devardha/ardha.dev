@@ -125,7 +125,7 @@ export const getCategoryBySlug = async (slug) => {
     const query = gql`
         {
             categories(where: { slug: "${slug}" }){
-                name
+                name,
             }
         }
     `;
