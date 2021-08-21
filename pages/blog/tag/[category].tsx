@@ -1,4 +1,4 @@
-import Banner from "../../../components/Banner";
+import Header from "../../../components/Header";
 import BlogPosts from "../../../components/BlogPosts";
 import Layout from "../../../components/Layout";
 import { getCategories, getCategoryBySlug, getPostsByCategory } from "../../../lib/graphql/queries";
@@ -7,7 +7,7 @@ export default function Category({ posts, category }) {
     return (
         <Layout metaTitle={ category.name + ' - Devardha Blog' }>
             <div className="py-10">
-                <Banner title={category.name} count={posts.length}/>
+                <Header title={category.name} count={posts.length}/>
                 <BlogPosts posts={ posts }/>
             </div>
         </Layout>

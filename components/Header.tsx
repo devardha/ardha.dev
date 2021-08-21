@@ -1,4 +1,4 @@
-export default function Banner({ title, count }) {
+export default function Header({ title, count }) {
     return (
         <div className="container">
             <div className="px-5 mb-16 flex text-sm">
