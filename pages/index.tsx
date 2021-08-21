@@ -1,21 +1,27 @@
 import BlogPosts from "../components/BlogPosts";
+import Categories from "../components/Categories";
 import Layout from "../components/Layout";
-import { getPosts } from "../lib/graphql/queries";
+import { getCategories, getPosts } from "../lib/graphql/queries";
 
-export default function Home({ posts }) {
+export default function Home({ posts, categories }) {
     return (
         <Layout>
-            <BlogPosts posts={posts}/>
+            <div className="py-10">
+                <Categories categories={ categories }/>
+                <BlogPosts posts={ posts }/>
+            </div>
         </Layout>
     )
 }
 
 export async function getStaticProps() {
     const { posts } = await getPosts();
+    const { categories } = await getCategories();
 
     return {
         props: {
-            posts
+            posts,
+            categories
         },
     }
 }

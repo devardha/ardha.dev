@@ -24,6 +24,28 @@ export const getPosts = async () => {
     return client.request(query);
 }
 
+export const getPostsByCategory = async (category) => {
+    const query = gql`
+        {
+            posts(where: { categories: { slug: "${category}" }}){
+                title,
+                description,
+                slug,
+                image{
+                    url
+                },
+                published_at,
+                categories{
+                    name,
+                    slug
+                }
+            }
+        }
+    `;
+
+    return client.request(query);
+}
+
 export const getPostBySlug = async (slug) => {
     const query = gql`
         {
@@ -79,6 +101,31 @@ export const getPageBySlug = async (slug) => {
                         url
                     }
                 }
+            }
+        }
+    `;
+
+    return client.request(query);
+}
+
+export const getCategories = async () => {
+    const query = gql`
+        {
+            categories(sort: "name:asc"){
+                name,
+                slug
+            }
+        }
+    `;
+
+    return client.request(query);
+}
+
+export const getCategoryBySlug = async (slug) => {
+    const query = gql`
+        {
+            categories(where: { slug: "${slug}" }){
+                name
             }
         }
     `;
