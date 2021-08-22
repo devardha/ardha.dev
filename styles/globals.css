@@ -27,4 +27,12 @@
         min-height: 220px;
         max-width: 33.333333%;
     }
+
+    @media (max-width: 767px) {
+        .post {
+            flex: 1 1 100%;
+            min-height: 220px;
+            max-width: 100%;
+        }
+    }
 }

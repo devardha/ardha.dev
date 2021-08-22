@@ -9,7 +9,7 @@ export default function Navbar(){
         <nav className="w-full fixed top-0 left-0 right-0 z-10 border-b border-gray-200" style={{ background: 'rgba(255,255,255,0.9)', backdropFilter: 'saturate(180%) blur(20px)' }}>
             <div className="container w-full">
                 <div className="px-5 py-6 w-full flex items-center">
-                    <ul className="flex flex-1 justify-start">
+                    <ul className="flex-1 justify-start hidden lg:flex">
                         { data.map((item, index) => (
                             <Link href={item.url} key={index}>
                                 <a><li className={`mx-4 text-sm hover:font-semibold ${ path === item.url ? 'font-semibold' : '' } ${ index === 0? 'ml-0' : '' }`}>{ item.title }</li></a>
