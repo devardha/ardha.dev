@@ -1,4 +1,4 @@
-import { BiSearch } from 'react-icons/bi'
+import { BiSearch, BiMenu } from 'react-icons/bi'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
@@ -8,7 +8,7 @@ export default function Navbar(){
     return(
         <nav className="w-full fixed top-0 left-0 right-0 z-10 border-b border-gray-200" style={{ background: 'rgba(255,255,255,0.9)', backdropFilter: 'saturate(180%) blur(20px)' }}>
             <div className="container w-full">
-                <div className="px-5 py-6 w-full flex items-center">
+                <div className="px-5 py-6 w-full flex items-center justify-between">
                     <ul className="flex-1 justify-start hidden lg:flex">
                         { data.map((item, index) => (
                             <Link href={item.url} key={index}>
@@ -20,6 +20,7 @@ export default function Navbar(){
                         <h1 className="bg-black px-4 py-1 text-white" style={{ fontFamily: 'Consolas' }}>devardha</h1>
                     </div>
                     <BiSearch className="text-2xl"/>
+                    <BiMenu className="text-3xl block lg:hidden"/>
                 </div>
             </div>
         </nav>
