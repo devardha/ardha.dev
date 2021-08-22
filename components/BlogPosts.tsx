@@ -41,7 +41,7 @@ function Post({ post }){
 export default function BlogPosts({ posts }){
     return(
         <div className="container">
-            <ul className="flex flex-wrap flex-col lg:flex-row">
+            <ul className="flex flex-wrap flex-col md:flex-row">
                 { posts.map((post, index) => (
                     <Post post={post} key={index}/>
                 )) }

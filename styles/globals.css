@@ -23,16 +23,24 @@
 
 @layer components {
     .post {
-        flex: 1 1 33.333333%;
+        flex: 1 1 100%;
         min-height: 220px;
-        max-width: 33.333333%;
+        max-width: 100%;
     }
 
-    @media (max-width: 767px) {
+    @media (min-width: 768px) {
         .post {
-            flex: 1 1 100%;
+            flex: 1 1 50%;
             min-height: 220px;
-            max-width: 100%;
+            max-width: 50%;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .post {
+            flex: 1 1 33.333333%;
+            min-height: 220px;
+            max-width: 33.333333%;
         }
     }
 }
