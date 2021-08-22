@@ -1,11 +1,8 @@
-export default function Header({ title, count }) {
-    return (
+export default function Categories({ title }){
+    return(
         <div className="container">
-            <div className="px-5 mb-16 flex text-sm">
-                <div className="w-full flex flex-col">
-                    <h2 className="text-6xl font-bold leading-tight tracking-tight">{ title }</h2>
-                    <p className="text-gray-400 text-xl mt-4">{ `Showing ${ count } results for blog posts with category "${ title }"` }</p>
-                </div>
+            <div className="px-5 mb-8 flex text-sm">
+                <div className="px-3 py-2 bg-gray-100 hover:bg-gray-200 mr-3 cursor-pointer">{ title }</div>
             </div>
         </div>
     )

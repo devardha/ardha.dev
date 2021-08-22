@@ -7,7 +7,7 @@ export default function Category({ posts, category }) {
     return (
         <Layout metaTitle={ category.name + ' - Devardha Blog' }>
             <div className="py-10">
-                <Header title={category.name} count={posts.length}/>
+                <Header title={category.name}/>
                 <BlogPosts posts={ posts }/>
             </div>
         </Layout>
