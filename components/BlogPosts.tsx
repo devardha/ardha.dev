@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 function Post({ post }){
     return(
-        <li className="post px-5 mb-12 md:mb-10" key={post.id}>
+        <li className="post px-5 mb-12 lg:mb-10" key={post.id}>
             <Link href={'/blog/' + post.slug}>
                 <a className="w-full relative block rounded overflow-hidden h-48 bg-whitesmoke">
                     { post.image.url ? <Image objectFit="cover" sizes="100%" layout="fill" placeholder="blur" blurDataURL={ post.image.url } src={ post.image.url } alt={ post.title } /> : '' }
@@ -40,7 +40,7 @@ function Post({ post }){
 export default function BlogPosts({ posts }){
     return(
         <div className="container">
-            <ul className="flex flex-wrap flex-col md:flex-row">
+            <ul className="flex flex-wrap flex-col lg:flex-row">
                 { posts.map((post, index) => (
                     <Post post={post} key={index}/>
                 )) }
