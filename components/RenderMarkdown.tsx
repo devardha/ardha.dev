@@ -11,13 +11,43 @@ export default function RenderMarkdown({ content }){
             code({ node, inline, className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || '')
                 const codeHeader = className && className.includes(':');
+
+                const matches = className && className.includes('{') ? className.match(/\{(.*?)\}/) : null
+
                 return !inline && match ? (
                     <>
                     { codeHeader && <div className="code-label">{ className.split(':')[1] }</div> }
                     <SyntaxHighlighter
                         style={ styles }
                         language={ match[1] }
+                        startingLineNumber={ 1 }
+                        showLineNumbers
+                        wrapLines
+                        showInlineLineNumbers={ false }
                         PreTag="div"
+                        lineProps={(lineNumber) => {
+                            const style = { display: "", backgroundColor: "" };
+                            if(matches){
+                                // more than 1 highilght
+                                if(matches[1].includes(',')){
+                                    const split = matches[1].split(',')
+
+                                    split.forEach(num => {
+                                        if(parseInt(num) === lineNumber){
+                                            style.backgroundColor = "rgb(225 251 244)"
+                                            style.display = "block"
+                                        }
+                                    })
+                                }else{
+                                    if ( parseInt(matches[1]) === lineNumber ) {
+                                        style.backgroundColor = "rgb(225 251 244)"
+                                        style.display = "block"
+                                    }
+                                }
+                            }
+
+                            return { style }
+                        }}
                         { ...props }
                     >{ String(children).replace(/\n$/, '') }</SyntaxHighlighter>
                     </>
@@ -30,6 +60,10 @@ export default function RenderMarkdown({ content }){
             }}
         >{ content }</ReactMarkdown>
         <style dangerouslySetInnerHTML={{__html: `
+            .react-syntax-highlighter-line-number{
+                display:none;
+            }
+
             .code-label{
                 background-color: #e5e5e5;
                 border-radius: 3px 3px 0 0;
