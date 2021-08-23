@@ -6,7 +6,7 @@ export default function Navbar(){
     const path = useRouter().asPath;
 
     return(
-        <nav className="w-full fixed top-0 left-0 right-0 z-10 border-b border-gray-200" style={{ background: 'rgba(255,255,255,0.9)', backdropFilter: 'saturate(180%) blur(20px)' }}>
+        <nav className="w-full fixed top-0 left-0 right-0 z-10 border-b border-gray-200" style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'saturate(180%) blur(20px)' }}>
             <div className="container w-full">
                 <div className="px-5 py-6 w-full flex items-center justify-between">
                     <ul className="flex-1 justify-start hidden lg:flex">

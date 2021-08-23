@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { format } from 'date-fns'
+import { readingTime } from '../lib/reading-time'
 
 function Post({ post }){
     return(
@@ -30,7 +31,7 @@ function Post({ post }){
                     </div>
                     <div className="text-xs flex flex-col ml-4 uppercase">
                         <a href="#" className="font-medium">Ardha Yudhatama</a>
-                        <span className="text-gray-500 mt-1">{ format(new Date(post.published_at), 'dd MMMM yyy') } • 10 Min Read</span>
+                        <span className="text-gray-500 mt-1">{ format(new Date(post.published_at), 'dd MMMM yyy') } • { readingTime(post.content) } Min Read</span>
                     </div>
                 </div>
             </div>

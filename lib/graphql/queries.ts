@@ -16,7 +16,8 @@ export const getPosts = async () => {
                 categories{
                     name,
                     slug
-                }
+                },
+                content
             }
         }
     `;
