@@ -8,9 +8,11 @@ interface Props {
     metaTitle?: string
     metaDescription?: string
     shareImage?: string
+    metaType?: string
+    publishedTime?: string
 }
 
-export default function Layout({ children, metaTitle, metaDescription, shareImage }: Props){
+export default function Layout({ children, metaTitle, metaDescription, metaType, shareImage, publishedTime }: Props){
     const asPath = useRouter().asPath;
 
     return (
@@ -18,7 +20,11 @@ export default function Layout({ children, metaTitle, metaDescription, shareImag
             <Head>
                 <title>{ metaTitle || 'Ardha Developer Blog' }</title>
                 <link rel="shortcut icon" href="/favicon.ico" />
+
+                <meta name="robots" content="follow, index" />
                 <meta name="description" content={ metaDescription } />
+                <link rel="canonical" href={`https://ardha.dev${ asPath }`} />
+                { publishedTime && <meta property="article:published_time" content={ publishedTime }/> }
 
                 {/* Open Graph */}
                 <meta property="og:url" content={ 'https://ardha.dev' + asPath } key="ogurl" />
@@ -26,6 +32,14 @@ export default function Layout({ children, metaTitle, metaDescription, shareImag
                 <meta property="og:site_name" content={ 'Devardha Blog' } key="ogsitename" />
                 <meta property="og:title" content={ metaTitle } key="ogtitle" />
                 <meta property="og:description" content={ metaDescription } key="ogdesc" />
+                <meta property="og:type" content={ metaType || 'website' } />
+
+                {/* Twitter Card */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:site" content="@ardhaydhtm" />
+                <meta name="twitter:title" content={ metaTitle } />
+                <meta name="twitter:description" content={ metaDescription } />
+                <meta name="twitter:image" content={ shareImage } />
             </Head>
             <Navbar/>
             <main className="mt-20">

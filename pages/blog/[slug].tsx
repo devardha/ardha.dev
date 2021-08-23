@@ -6,7 +6,7 @@ import { format } from 'date-fns'
 
 export default function Blog({ post }) {
     return (
-        <Layout metaTitle={ post.seo.metaTitle } metaDescription={ post.seo.metaDescription } shareImage={ post.seo.shareImage && post.seo.shareImage.url }>
+        <Layout metaTitle={ post.seo.metaTitle } metaDescription={ post.seo.metaDescription } shareImage={ post.seo.shareImage && post.seo.shareImage.url } metaType={ 'article' } publishedTime={ post.published_at }>
             <div className="container py-10 px-5">
                 <header>
                     <div className="max-w-screen-md m-auto mb-10">
