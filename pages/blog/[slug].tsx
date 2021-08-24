@@ -3,6 +3,7 @@ import { getPostBySlug, getPosts } from "../../lib/graphql/queries";
 import Image from 'next/image';
 import RenderMarkdown from "../../components/RenderMarkdown";
 import { format } from 'date-fns'
+import { readingTime } from "../../lib/reading-time";
 
 export default function Blog({ post }) {
     return (
@@ -18,7 +19,7 @@ export default function Blog({ post }) {
                             </div>
                             <div className="text-xs lg:text-sm flex flex-col ml-4 uppercase">
                                 <a href="#" className="font-medium">Ardha Yudhatama</a>
-                                <span className="text-gray-500 mt-1">{ format(new Date(post.published_at), 'dd MMMM yyy') } • 10 Min Read</span>
+                                <span className="text-gray-500 mt-1">{ format(new Date(post.published_at), 'dd MMMM yyy') } • { readingTime(post.content) } Min Read</span>
                             </div>
                         </div>
                     </div>

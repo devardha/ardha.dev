@@ -39,7 +39,8 @@ export const getPostsByCategory = async (category) => {
                 categories{
                     name,
                     slug
-                }
+                },
+                content
             }
         }
     `;
