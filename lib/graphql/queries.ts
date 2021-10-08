@@ -1,11 +1,12 @@
 import { GraphQLClient, gql } from 'graphql-request';
 
 const client = new GraphQLClient(process.env.STRAPI_GRAPHQL_URL);
+const ENV = process.env.NEXT_PUBLIC_VERCEL_ENV;
 
 export const getPosts = async () => {
-    const query = gql`
+    const queryLive = gql`
         {
-            posts(sort: "published_at:desc") {
+            posts(sort: "published_at:desc", publicationState: LIVE) {
                 title,
                 description,
                 slug,
@@ -22,7 +23,26 @@ export const getPosts = async () => {
         }
     `;
 
-    return client.request(query);
+    const queryPreview = gql`
+{
+    posts(sort: "published_at:desc", publicationState: PREVIEW) {
+        title,
+        description,
+        slug,
+        image{
+            url
+        },
+        published_at,
+        categories{
+            name,
+            slug
+        },
+        content
+    }
+}
+`;
+
+    return client.request(ENV === 'production' ? queryLive : queryPreview);
 }
 
 export const getPostsByCategory = async (category) => {
