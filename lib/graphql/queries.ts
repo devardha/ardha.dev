@@ -68,10 +68,10 @@ export const getPostsByCategory = async (category) => {
     return client.request(query);
 }
 
-export const getPostBySlug = async (slug) => {
+export const getPostBySlug = async (slug, preview = 'LIVE') => {
     const query = gql`
         {
-            posts(where: { slug: "${slug}" }){
+            posts(where: { slug: "${slug}" }, publicationState: ${preview}){
                 title,
                 description,
                 content

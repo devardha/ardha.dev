@@ -1,13 +1,13 @@
-import Layout from "../../components/Layout";
-import { getPostBySlug, getPosts } from "../../lib/graphql/queries";
+import Layout from "../../../components/Layout";
+import { getPostBySlug, getPosts } from "../../../lib/graphql/queries";
 import Image from 'next/image';
-import RenderMarkdown from "../../components/RenderMarkdown";
+import RenderMarkdown from "../../../components/RenderMarkdown";
 import { format } from 'date-fns'
-import { readingTime } from "../../lib/reading-time";
+import { readingTime } from "../../../lib/reading-time";
 
-export default function Blog({ post }) {
+export default function Blog({ post, preview }) {
     return (
-        <Layout metaTitle={ post.seo.metaTitle } metaDescription={ post.seo.metaDescription } shareImage={ post.seo.shareImage && post.seo.shareImage.url } metaType={ 'article' } publishedTime={ post.published_at }>
+        <Layout preview={preview} metaTitle={ post.seo.metaTitle } metaDescription={ post.seo.metaDescription } shareImage={ post.seo.shareImage && post.seo.shareImage.url } metaType={ 'article' } publishedTime={ post.published_at }>
             <div className="container py-10 px-5">
                 <header>
                     <div className="max-w-screen-md m-auto mb-10">
@@ -38,22 +38,15 @@ export default function Blog({ post }) {
     )
 }
 
-export async function getStaticPaths() {
-    const { posts } = await getPosts();
-
-    const paths = posts.map((post) => ({
-        params: { slug: post.slug },
-    }))
-
-  return { paths, fallback: false }
-}
-
-export async function getStaticProps({ params: { slug } }) {
-    const { posts } = await getPostBySlug(slug);
+export async function getServerSideProps(context) {
+    const preview = context.preview ? 'PREVIEW' : 'LIVE';
+    const { slug } = context.params;
+    const { posts } = await getPostBySlug(slug, preview);
 
     return {
         props: {
-            post: posts[0]
+            post: posts[0],
+            preview: context.preview || null
         },
     }
 }

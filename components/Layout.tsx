@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { ReactNode } from 'react'
 import Navbar from './Navbar'
+import PreviewBar from './PreviewBar';
 
 interface Props {
     children: ReactNode
@@ -10,9 +11,10 @@ interface Props {
     shareImage?: string
     metaType?: string
     publishedTime?: string
+    preview?: Boolean
 }
 
-export default function Layout({ children, metaTitle, metaDescription, metaType, shareImage, publishedTime }: Props){
+export default function Layout({ children, preview, metaTitle, metaDescription, metaType, shareImage, publishedTime }: Props){
     const asPath = useRouter().asPath;
 
     return (
@@ -41,7 +43,8 @@ export default function Layout({ children, metaTitle, metaDescription, metaType,
                 <meta name="twitter:description" content={ metaDescription } />
                 <meta name="twitter:image" content={ shareImage } />
             </Head>
-            <Navbar/>
+            {preview && <PreviewBar/>}
+            {!preview && <Navbar/>}
             <main className="mt-20">
                 { children }
             </main>
