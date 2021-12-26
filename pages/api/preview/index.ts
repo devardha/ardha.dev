@@ -7,9 +7,9 @@ export default async function handler(req, res) {
 	}
 
 	if(apiID === 'post'){
-		const previewData = await getPostBySlug(slug);
+		const previewData = await getPostBySlug(slug, 'PREVIEW');
 
-		if (!previewData.posts[0]) {
+		if (!previewData.posts[0].slug) {
 			return res.status(401).json({ message: 'Invalid slug' });
 		}
 		
